@@ -1,0 +1,25 @@
+<template lang="pug">
+  div.content
+    MasterVideos
+
+</template>
+
+
+<script>
+import MasterVideos from "@/components/MasterVideos";
+
+export default {
+  name: "Content",
+  components: {MasterVideos}
+}
+</script>
+
+<style scoped>
+
+.content{
+  width: 80%;
+  height: 800px;
+  display: flex;
+}
+
+</style>

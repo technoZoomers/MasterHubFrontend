@@ -65,9 +65,12 @@ export default {
   display: grid;
   grid-template-columns: 5% 22% 8% 10% 22% 8% 8% 17%;
   grid-template-rows: 10% 22% 6% 4% 8% 10% 22% 6% 4% 8%;
-  /* TODO: 100% ? */
+  /* 
   height: 800px;
   width: 1100px;
+  */
+  height: 100%;
+  width: 100%;
 }
 
 .page-text {
