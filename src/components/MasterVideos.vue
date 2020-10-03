@@ -1,6 +1,5 @@
 <template lang="pug">
 div
-  
   div(class="container")
     h1(class="presentation-header header page-text") Presentation
     video(
@@ -44,23 +43,46 @@ div
     div(class="video2-subtheme centered-flex-content") 
         div(class="subtheme centered-flex-content") flute
 
-    input(type="button" class="button button-load-presentation page-text" value="Upoad presentation")
-    input(type="button" class="button button-load-video page-text" value="Upoad lesson")
+    input(id="presentation-upload" type="file" ref="file" class="inputfile" v-on:change="handleFileUpload()")
+    label(for="presentation-upload" class="button button-load-presentation page-text centered-flex-content") Upload presentation
+
+    input(id="lesson-upload" type="file" class="inputfile")
+    label(for="lesson-upload" class="button button-load-video page-text centered-flex-content") Upload lesson
 
 
 </template>
 
 <script>
+// import LoadNewInto from "../api/masters";
 export default {
   name: 'MasterVideos',
   props: {
     masterId: Number
-  }
+  },
+  methods: {
+      handleFileUpload(){
+          this.file = this.$refs.file.files[0];
+          console.log(this.file);
+          let formData = new FormData();
+          formData.append('file', this.file);
+          //LoadNewInto(formData);
+      }
+    }
 }
 </script>
 
 
 <style scoped>
+.inputfile {
+  /* visibility: hidden etc. wont work */
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
 .container {
   display: grid;
   grid-template-columns: 5% 22% 8% 10% 22% 8% 8% 17%;
