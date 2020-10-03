@@ -53,7 +53,7 @@ div
 </template>
 
 <script>
-// import LoadNewInto from "../api/masters";
+import {LoadNewInto} from "../api/masters";
 export default {
   name: 'MasterVideos',
   props: {
@@ -65,7 +65,7 @@ export default {
           console.log(this.file);
           let formData = new FormData();
           formData.append('file', this.file);
-          //LoadNewInto(formData);
+          LoadNewInto(formData);
       }
     }
 }

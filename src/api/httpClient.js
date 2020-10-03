@@ -1,4 +1,3 @@
-/*
 import axios from 'axios';
 
 const base = "https://api.com";
@@ -12,4 +11,3 @@ const httpClient = axios.create({
 });
 
 export default httpClient;
-*/
