@@ -21,6 +21,5 @@ export default {
   margin: 0 5px 0 5px;
   height: 5vh;
   min-height: fit-content;
-
 }
 </style>
