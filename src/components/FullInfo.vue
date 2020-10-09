@@ -15,7 +15,8 @@
         div.text_inside_text
           a.user__name_style prime activity music
       div.settings
-        a.user__name_style settings
+        a.user__name_style
+          router-link(to="/account/settings") settings
       div.exit
         a.user__name_style exit
 
@@ -31,8 +32,17 @@ name: "FullInfo"
 .content{
   margin: 5px;
 }
+a {
+  text-decoration: none;
+  color: #FF736A;
+}
+a:visited{
+  color: #FF736A;
+}
+a:active {
+  color: #FFDAAE; /* Цвет активных ссылок */
+}
 .hiddenInfo{
-  height: 200px;
   margin: 5px;
   display: flex;
   flex-direction: column;
@@ -44,7 +54,7 @@ name: "FullInfo"
   width: 60px;
 }
 .user__img_style{
-  border-radius: 50px;
+  border-radius: 100%;
   border: 1px solid rgba(0, 0, 0, 0.5);
   align-self:center;
 }
@@ -75,7 +85,7 @@ name: "FullInfo"
   font-style: normal;
   font-family: Maven Pro;
   font-variant: small-caps;
-  font-size: 13px;
+  font-size: 16px;
   margin-top: 2px;
 }
 </style>

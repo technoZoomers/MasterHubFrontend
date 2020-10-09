@@ -1,7 +1,6 @@
 <template lang="pug">
   div.content
-    MasterVideos
-
+    router-view
 </template>
 
 

@@ -29,6 +29,11 @@ export default {
 .user_window{
   display: inline-grid;
 }
+.hidden{
+  z-index: 1;
+  border-radius: 10px;
+  background-color: cornsilk;
+}
 .text{
   display: flex;
   flex-direction: column;
