@@ -5,8 +5,9 @@
       div.settings_title_small personal settings
       div.personal_settings
         div.personal_pic
-          img.user__img.user__img_style(src = '../assets/pics/user.jpg')
-          a.change_photo change photo
+          img.user__img.user__img_style(src='../assets/pics/user.jpg')
+          label.change_photo(for="change_pic") change photo
+          input(@change="change_photo" type="file" style="display: none;" id="change_pic")
         div.personal_name
           div.full_name
             div.title_style full name
@@ -17,7 +18,8 @@
         div.personal_description
           div.title_style description
           div.description_text
-            textarea(rows="10" cols="50" style="width: 80%; max-width: 80%; resize: none") Hello! I’m a professional flutist and I’m going to teach you how to play flute from scratch! I will enjoy arranging online or live lessons, if you are from Moscow
+            textarea(rows="10" cols="50" style="width: 80%; max-width: 80%; resize: none;border: 1px solid #FF736A!important;\n" +
+            "    border-radius: 10px;") Hello! I’m a professional flutist and I’m going to teach you how to play flute from scratch! I will enjoy arranging online or live lessons, if you are from Moscow
       div.settings_title_small account settings
       div.account_settings
         div.account_set
@@ -37,12 +39,31 @@
           div.input_field
             input(type="text" value="instrumental")
       div.save
-        input(type='submit' value="Save")
+        input(type='submit' value="Save" style="background-color: #FF736A; border: none")
 </template>
 
 <script>
 export default {
-  name: "Settings"
+  name: "Settings",
+  methods: {
+    change_photo(e){
+      let pic = document.querySelectorAll('.user__img');
+      let file = e.target.files[0];
+      let reader = new FileReader();
+
+      reader.onloadend = function () {
+        pic[0].src = reader.result;
+        pic[1].src = reader.result;
+      }
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        pic[0].src = '../assets/pics/user.jpg';
+        pic[1].src = '../assets/pics/user.jpg';
+      }
+    }
+
+  }
 }
 </script>
 
@@ -59,9 +80,9 @@ export default {
 
 input{
   box-sizing: border-box;
-  border-radius: 40px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
   padding: 4px;
+  border: 1px solid #FF736A!important;
+  border-radius: 10px;
 }
 .account_set{
   display: flex;
@@ -95,6 +116,9 @@ input{
   font-variant: small-caps;
   align-self: center;
 }
+.change_photo:hover {
+  color: #FF736A;
+}
 .personal_name{
   width: 20%;
   margin-left: 5px;
@@ -112,8 +136,8 @@ input{
   width: 90%;
 }
 .user__img_style{
-  border-radius: 100px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 100%;
+  border: 2px solid #FF736A!important;
   align-self:flex-start;
 }
 .settings_title_small{

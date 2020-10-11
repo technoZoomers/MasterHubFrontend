@@ -7,7 +7,7 @@
 import PersonalAccount from "@/components/PersonalAccount";
 export default {
   name: "Body",
-  components: {PersonalAccount}
+  components: {PersonalAccount},
 }
 </script>
 
