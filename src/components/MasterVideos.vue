@@ -1,55 +1,52 @@
 <template lang="pug">
-div
-  div(class="container")
-    h1(class="presentation-header header page-text") Presentation
-    video(
-        src="../assets/test.mp4"
-        type="video/mp4"
-        class="video-presentation"
-        controls
-    )
-    h1(class="lessons-header header page-text") Lessons
-    video(
-        src="../assets/test.mp4"
-        type="video/mp4"
-        class="video-lesson-1"
-        controls
-    )
-    video(
-        src="../assets/test.mp4"
-        type="video/mp4"
-        class="video-lesson-2"
-        controls
-    )
-    div(class="presentation-title video-title centered-flex") I'm flutist Reya Fountain
-    div(class="presentation-date video-date centered-flex") October 3, 2020
-    div(class="presentation-theme centered-flex-content") 
-        div(class="theme centered-flex-content") music
-    div(class="presentation-subtheme centered-flex-content") 
-        div(class="subtheme centered-flex-content") flute
+div(class="container")
+  h1(class="presentation-header header page-text") Presentation
+  video(
+      src="../assets/test.mp4"
+      type="video/mp4"
+      class="video-presentation"
+      controls
+  )
+  h1(class="lessons-header header page-text") Lessons
+  video(
+      src="../assets/test.mp4"
+      type="video/mp4"
+      class="video-lesson-1"
+      controls
+  )
+  video(
+      src="../assets/test.mp4"
+      type="video/mp4"
+      class="video-lesson-2"
+      controls
+  )
+  div(class="presentation-title video-title centered-flex") I'm flutist Reya Fountain
+  div(class="presentation-date video-date centered-flex") October 3, 2020
+  div(class="presentation-theme centered-flex-content") 
+      div(class="theme centered-flex-content") music
+  div(class="presentation-subtheme centered-flex-content") 
+      div(class="subtheme centered-flex-content") flute
 
-    div(class="video1-title video-title centered-flex") Tutorial 1
-    div(class="video1-date video-date centered-flex") October 4, 2020
-    div(class="video1-theme centered-flex-content") 
-        div(class="theme centered-flex-content") music
-    div(class="video1-subtheme centered-flex-content") 
-        div(class="subtheme centered-flex-content") flute
-
-
-    div(class="video2-title video-title centered-flex") Tutorial 2
-    div(class="video2-date video-date centered-flex") October 5, 2020
-    div(class="video2-theme centered-flex-content") 
-        div(class="theme centered-flex-content") music
-    div(class="video2-subtheme centered-flex-content") 
-        div(class="subtheme centered-flex-content") flute
-
-    input(id="presentation-upload" type="file" ref="file" class="inputfile" v-on:change="handleFileUpload()")
-    label(for="presentation-upload" class="button button-load-presentation page-text centered-flex-content") Upload presentation
-
-    input(id="lesson-upload" type="file" class="inputfile")
-    label(for="lesson-upload" class="button button-load-video page-text centered-flex-content") Upload lesson
+  div(class="video1-title video-title centered-flex") Tutorial 1
+  div(class="video1-date video-date centered-flex") October 4, 2020
+  div(class="video1-theme centered-flex-content") 
+      div(class="theme centered-flex-content") music
+  div(class="video1-subtheme centered-flex-content") 
+      div(class="subtheme centered-flex-content") flute
 
 
+  div(class="video2-title video-title centered-flex") Tutorial 2
+  div(class="video2-date video-date centered-flex") October 5, 2020
+  div(class="video2-theme centered-flex-content") 
+      div(class="theme centered-flex-content") music
+  div(class="video2-subtheme centered-flex-content") 
+      div(class="subtheme centered-flex-content") flute
+
+  input(id="presentation-upload" type="file" ref="file" class="inputfile" v-on:change="handleFileUpload()")
+  label(for="presentation-upload" class="button button-load-presentation page-text centered-flex-content") Upload presentation
+
+  input(id="lesson-upload" type="file" class="inputfile")
+  label(for="lesson-upload" class="button button-load-video page-text centered-flex-content") Upload lesson
 </template>
 
 <script>
@@ -96,7 +93,7 @@ export default {
 }
 
 .page-text {
-  font-family: "Maven Pro";
+  font-family: var(--project-font);
 }
 
 .header {
@@ -153,6 +150,7 @@ export default {
   font-size: 16px;
   border-radius: 20px;
   white-space: normal;
+  outline:none;
 }
 
 .button-load-presentation {
@@ -213,7 +211,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .video-title {
@@ -292,7 +289,7 @@ export default {
 }
 
 .subtheme {
-    background-color: #FF736A;
+    background-color: var(--red-color);
     height: 30px;
     width: 100%;
     border-radius: 20px;
