@@ -16,7 +16,8 @@ export default {
 <style scoped>
 
 .content{
-  width: 80%;
+  width: 77%;
+  height: 100%;
   display: flex;
 }
 

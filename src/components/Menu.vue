@@ -33,7 +33,7 @@ a:active {
   color: #FFDAAE; /* Цвет активных ссылок */
 }
 .menu{
-  width: 20%;
+  width: 10%;
   font-style: normal;
   font-family: Maven Pro;
   font-weight: 100;
