@@ -5,6 +5,7 @@ import MasterVideos from "@/components/MasterVideos";
 import Chats from "@/components/Chats";
 import Schedule from "@/components/Schedule";
 import Reviews from "@/components/Reviews";
+import Dialog from "@/components/Dialog";
 
 Vue.use(VueRouter);
 const routes = [
@@ -19,11 +20,6 @@ const routes = [
         component: MasterVideos
     },
     {
-        path: "/account/chats",
-        name: "Chats",
-        component: Chats
-    },
-    {
         path: "/account/schedule",
         name: "Schedule",
         component: Schedule
@@ -33,7 +29,16 @@ const routes = [
         name: "Reviews",
         component: Reviews
     },
-
+    {
+        path: "/account/chats",
+        name: "Chats",
+        component: Chats
+    },
+    {
+        path: "/dialog/:id",
+        name: "Dialog",
+        component: Dialog
+    },
 ];
 
 const router = new VueRouter({
