@@ -6,7 +6,7 @@
       div.reviewerName {{item.name}}
       div.quotes
         img.quotes__img(src = "../assets/pics/quotes.png")
-      div.reviwText {{item.review}}
+      div.reviewText {{item.review}}
 </template>
 
 <script>
@@ -47,7 +47,7 @@ data() {
 </script>
 
 <style scoped>
-.reviwText{
+.reviewText{
   text-align: center;
   margin: 5px;
   color: #6b6b6b;
@@ -104,5 +104,8 @@ data() {
   overflow-x: scroll;
   min-width: 31%;
   min-height: 80%;
+}
+.review::-webkit-scrollbar {
+  display: none;
 }
 </style>
