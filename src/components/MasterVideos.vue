@@ -50,7 +50,7 @@ div(class="container")
 </template>
 
 <script>
-import {LoadNewInto} from "../api/masters";
+import {LoadNewInto, GetUserInfoById} from "../api/masters";
 export default {
   name: 'MasterVideos',
   props: {
@@ -64,7 +64,16 @@ export default {
           formData.append('file', this.file);
           LoadNewInto(formData);
       }
+    },
+  async created() {
+    try {
+      const response = GetUserInfoById(1);
+      console.log(response.status);
+      this.data = response;
+    } catch (err) {
+      this.error = err;
     }
+  },
 }
 </script>
 
