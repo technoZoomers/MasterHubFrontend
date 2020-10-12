@@ -132,9 +132,8 @@ textarea {
   display: grid;
   grid-template-rows: 10% 65% 25%;
   grid-template-columns: 8% 74% 18%;
-  width: 90%;
-  /*TODO*/
-  height: 800px;
+  height: calc(70vh + 100px);
+  width: calc(70vw + 100px);
 }
 
 .container-messages {
@@ -143,9 +142,8 @@ textarea {
   display: grid;
   grid-template-rows: 7% repeat(var(--chat-elements), 12%);
   grid-template-columns: 8% 70% 22%;
-  width: 90%;
-  /*TODO*/
-  height: 800px;
+  height: calc(70vh + 100px);
+  width: calc(70vw + 100px);
 }
 
 .chat-header {

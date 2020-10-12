@@ -17,7 +17,6 @@ export default {
 
 .content{
   width: 80%;
-  height: 800px;
   display: flex;
 }
 
