@@ -20,17 +20,17 @@ const routes = [
     },
     {
         path: "/account/chats",
-        name: "Lessons",
+        name: "Chats",
         component: Chats
     },
     {
         path: "/account/schedule",
-        name: "Lessons",
+        name: "Schedule",
         component: Schedule
     },
     {
         path: "/account/reviews",
-        name: "Lessons",
+        name: "Reviews",
         component: Reviews
     },
 
