@@ -51,7 +51,7 @@ div(class="container")
 </template>
 
 <script>
-import {LoadNewInto, GetVideoById} from "../api/masters";
+import {LoadNewVideo, GetVideoById} from "../api/masters";
 export default {
   name: 'MasterVideos',
   props: {
@@ -68,7 +68,7 @@ export default {
           this.file = this.$refs.file.files[0];
           let formData = new FormData();
           formData.append('video', this.file);
-          LoadNewInto(formData, this.userID);
+          LoadNewVideo(formData, this.userID);
       },      
   },
   async mounted() {
