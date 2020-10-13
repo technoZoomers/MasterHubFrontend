@@ -11,39 +11,52 @@
         div.personal_name
           div.full_name
             div.title_style full name
-            textarea.name(rows="1" cols="1" style="width: 80%; max-width: 80%; border:none; resize: none") Super Master
+            textarea.name(rows="1" cols="1" style="width: 80%; max-width: 80%; border:none; resize: none") {{fullname}}
           div.username
             div.title_style username
-            textarea.name(rows="1" cols="1" style="width: 80%; max-width: 80%; border:none; resize: none") super11
+            textarea.name(rows="1" cols="1" style="width: 80%; max-width: 80%; border:none; resize: none") {{username}}
         div.personal_description
           div.title_style description
           div.description_text
             textarea(rows="10" cols="50" style="width: 80%; max-width: 80%; resize: none;border: 1px solid #FF736A!important;\n" +
-            "    border-radius: 10px;") Hello! I’m a professional flutist and I’m going to teach you how to play flute from scratch! I will enjoy arranging online or live lessons, if you are from Moscow
+            "    border-radius: 10px;") {{ description }}
       div.settings_title_small account settings
       div.account_settings
         div.account_set
           div.field your language
           div.input_field
-            input(type="text" value="russian")
+            input(type="text" :value="language")
         div.account_set
           div.field your qualification
           div.input_field
-            input(type="text" value="professional")
+            input(type="text" :value="qualification")
         div.account_set
           div.field your theme
           div.input_field
-            input(type="text" value="music")
+            input(type="text" :value="theme")
         div.account_set
           div.field your subthemes
           div.input_field
-            input(type="text" value="instrumental")
+            input(type="text" :value="subthemes")
       div.save
         input(type='submit' value="Save" style="background-color: #FF736A; border: none")
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+  data() {
+    return {
+      description: null,
+      fullname: null,
+      username: null,
+      language:[],
+      qualification: null,
+      theme: null,
+      subthemes: null
+    };
+  },
   name: "Settings",
   methods: {
     change_photo(e){
@@ -63,6 +76,19 @@ export default {
       }
     }
 
+  },
+  mounted() {
+    axios
+        .get('https://sleepy-brushlands-78726.herokuapp.com/masters/2')
+        .then(response => (
+            this.description = response.data.description,
+            this.fullname = response.data.fullname,
+            this.username = response.data.username,
+            this.language = response.data.language,
+            this.qualification = response.data.qualification,
+            this.theme = response.data.theme.theme,
+            this.subthemes = response.data.theme.subthemes
+        ));
   }
 }
 </script>
@@ -152,6 +178,7 @@ input{
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 15px;
 }
 .settings_tittle{
   font-style: normal;
