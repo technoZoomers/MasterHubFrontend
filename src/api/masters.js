@@ -1,29 +1,50 @@
 import httpClient from "./httpClient";
-const END_POINT = '/masters';
-// masters/{id} 
-// GET masters/{id}/videos/intro
+const MASTER_END_POINT = '/masters';
 
-
-export async function LoadNewInto(formData) {
-  httpClient.post(END_POINT,
+export async function LoadNewInto(formData, userId) {
+  httpClient.post(MASTER_END_POINT + "/" + userId + "/videos/create",
     formData,
-    {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    }
-  ).then(function () {
-    console.log('Success request');
-  }).catch(function () {
-      console.log('Failure request');
-    });
+  ).then(response => {
+    console.log(response.data);
+  }).catch(e => {
+    console.log(e);
+  });
 }
 
-export async function GetUserInfoById(id) {
-  httpClient.get(END_POINT + "/" + id,
-  ).then(function () {
-    console.log('Success request');
-  }).catch(function () {
-      console.log('Failure request');
-  });
+export async function GetUserInfo(userId) {
+  httpClient.get(MASTER_END_POINT + "/" + userId
+  ).then(response => {
+    console.log(response.status)
+    console.log(response.data)
+  })
+  .catch(e => {
+    console.log(e);
+  })
+}
+
+export async function GetMasterVideos(userId) {
+  httpClient.get(MASTER_END_POINT + "/" + userId + "videos"
+  ).then(response => {
+    console.log(response.status)
+    console.log(response.data)
+  })
+  .catch(e => {
+    console.log(e);
+  })
+}
+
+export async function GetVideoById(userId, videoId) {
+  const response = await httpClient.get(MASTER_END_POINT + "/" + userId + "/videos/" + videoId, {responseType: 'blob'});
+  if (response.status !== 200) {
+    throw new Error(`Error get video by id: ${response.status}`);
+  }
+  return response;
+}
+
+export async function GetVideoDataById(userId, videoId) {
+  let response = await httpClient.get(MASTER_END_POINT + "/" + userId + "/videos/" + videoId + "/data");
+  if (response.status !== 200) {
+    throw new Error(`Error get video data by id: ${response.status}`);
+  }
+  return response;
 }

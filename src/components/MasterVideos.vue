@@ -3,15 +3,16 @@ div(class="container")
   h1(class="presentation-header header page-text") Presentation
   video(
       src="../assets/test.mp4"
-      type="video/mp4"
+      type="video/webm"
       class="video-presentation"
       controls
   )
   h1(class="lessons-header header page-text") Lessons
   video(
-      src="../assets/test.mp4"
-      type="video/mp4"
+      src=""
+      type="video/webm"
       class="video-lesson-1"
+      ref="video1"
       controls
   )
   video(
@@ -42,7 +43,7 @@ div(class="container")
   div(class="video2-subtheme centered-flex-content") 
       div(class="subtheme centered-flex-content") flute
 
-  input(id="presentation-upload" type="file" ref="file" class="inputfile" v-on:change="handleFileUpload()")
+  input(id="presentation-upload" type="file" ref="file" class="inputfile" @change="handlePresentationUpload()")
   label(for="presentation-upload" class="button button-load-presentation page-text centered-flex-content") Upload presentation
 
   input(id="lesson-upload" type="file" class="inputfile")
@@ -50,28 +51,35 @@ div(class="container")
 </template>
 
 <script>
-import {LoadNewInto, GetUserInfoById} from "../api/masters";
+import {LoadNewInto, GetVideoById} from "../api/masters";
 export default {
   name: 'MasterVideos',
   props: {
     masterId: Number
   },
+  data: () => {
+    return {
+      userID: 1,
+      video : undefined
+    }
+  },
   methods: {
-      handleFileUpload(){
+      handlePresentationUpload(){
           this.file = this.$refs.file.files[0];
-          console.log(this.file);
           let formData = new FormData();
-          formData.append('file', this.file);
-          LoadNewInto(formData);
-      }
-    },
-  async created() {
+          formData.append('video', this.file);
+          LoadNewInto(formData, this.userID);
+      },      
+  },
+  async mounted() {
     try {
-      const response = GetUserInfoById(1);
-      console.log(response.status);
-      this.data = response;
+      const response = await GetVideoById(this.userID, 1);
+      const blobVideo = response.data;
+      const videoUrl = window.URL.createObjectURL(blobVideo);
+      this.$refs.video1.src = videoUrl;
     } catch (err) {
       this.error = err;
+      console.log(err);
     }
   },
 }
