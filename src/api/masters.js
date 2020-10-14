@@ -4,7 +4,7 @@ const MASTER_END_POINT = '/masters';
 export async function LoadNewVideo(formData, userId) {
   const response = await httpClient.post(MASTER_END_POINT + "/" + userId + "/videos/create", formData, 
   {
-    headers: {"Content-Type" :"multipart/form-data"},
+    headers: {"Content-Type" : "multipart/form-data"},
   });
   if (response.status !== 200) {
     throw new Error(`Error to load video ${response.status}`);

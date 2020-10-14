@@ -54,6 +54,7 @@ div(class="container")
 
 <script>
 import {LoadNewVideo, GetVideoById, GetMasterVideosInfo} from "../api/masters";
+
 export default {
   name: 'MasterVideos',
   props: {
@@ -74,16 +75,14 @@ export default {
 
         let formData = new FormData();
         formData.append('video', this.file);
-        console.log(formData);
         try {
           const response = LoadNewVideo(formData, this.userID);
-          console.log(response);
+          console.log(response.status);
         } catch (err) {
           console.log(err);
         }
       }, 
       fillVideoInfo(data, index) {
-        console.log(data)
         const baseRef = 'video' + index;
         const titleRef = baseRef + '_title';
         const dataRef = baseRef + '_data';
