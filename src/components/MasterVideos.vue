@@ -84,7 +84,7 @@ export default {
         const dataRef = baseRef + '_data';
 
         this.$refs.[titleRef].innerHTML = data.name;
-        this.$refs.[dataRef].innerHTML = data.uploaded;
+        this.$refs.[dataRef].innerHTML = new Date(data.uploaded);
         //this.$refs.video1_theme1.innerHTML = data.theme.value.theme;
       },
       loadDataFromResponse(response, refName) {
