@@ -5,8 +5,8 @@ div(class="container")
       src=""
       type="video/webm"
       class="video-presentation"
-      controls
       ref="intro"
+      controls
   )
   h1(class="lessons-header header page-text") Lessons
   video(
@@ -17,11 +17,11 @@ div(class="container")
       controls
   )
   video(
-      src="../assets/test.mp4"
-      type="video/mp4"
+      src=""
+      type="video/webm"
       class="video-lesson-2"
-      controls
       ref="video2"
+      controls
   )
   div(class="presentation-title video-title centered-flex") My Intro
   div(class="presentation-date video-date centered-flex") October 14, 2020
@@ -38,8 +38,8 @@ div(class="container")
       div(class="subtheme centered-flex-content") flute
 
 
-  div(class="video2-title video-title centered-flex" ref="video2_title") Tutorial 2
-  div(class="video2-date video-date centered-flex") October 5, 2020
+  div(class="video2-title video-title centered-flex" ref="video2_title")
+  div(class="video2-date video-date centered-flex" ref="video2_data")
   div(class="video2-theme centered-flex-content") 
       div(class="theme centered-flex-content") music
   div(class="video2-subtheme centered-flex-content") 
@@ -77,29 +77,34 @@ export default {
         console.log(formData);
         LoadNewVideo(formData, this.userID);
       }, 
-      fillVideoInfo(data) {
+      fillVideoInfo(data, index) {
         console.log(data)
-        /*
         const baseRef = 'video' + index;
         const titleRef = baseRef + '_title';
-       */ 
-        this.$refs.video1_title.innerHTML = data.name;
-        this.$refs.video1_data.innerHTML = data.uploaded;
+        const dataRef = baseRef + '_data';
+
+        this.$refs.[titleRef].innerHTML = data.name;
+        this.$refs.[dataRef].innerHTML = data.uploaded;
         //this.$refs.video1_theme1.innerHTML = data.theme.value.theme;
+      },
+      loadDataFromResponse(response, refName) {
+      const blobVideo = response.data;
+      const videoUrl = window.URL.createObjectURL(blobVideo);
+      this.$refs.[refName].src = videoUrl;
       }     
   },
   async mounted() {
     try {
       const response = await GetVideoById(this.userID, 1);
-      const blobVideo = response.data;
-      const videoUrl = window.URL.createObjectURL(blobVideo);
-      this.$refs.video1.src = videoUrl;
+      this.loadDataFromResponse(response, "video1");
       
+      const response2 = await GetVideoById(this.userID, 2);
+      this.loadDataFromResponse(response2, "video2");
+
       const responseVideoInfo = await GetMasterVideosInfo(this.userID);
       this.videosInfoArray = responseVideoInfo.data;
-      this.fillVideoInfo(this.videosInfoArray[0]);
-      console.log(this.videosInfoArray[0]);
-
+      this.fillVideoInfo(this.videosInfoArray[0], 1);
+      this.fillVideoInfo(this.videosInfoArray[1], 2); 
     } catch (err) {
       this.error = err;
       console.log(err);
