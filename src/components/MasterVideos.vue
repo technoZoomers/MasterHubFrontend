@@ -2,10 +2,11 @@
 div(class="container")
   h1(class="presentation-header header page-text") Presentation
   video(
-      src="../assets/test.mp4"
+      src=""
       type="video/webm"
       class="video-presentation"
       controls
+      ref="intro"
   )
   h1(class="lessons-header header page-text") Lessons
   video(
@@ -20,23 +21,24 @@ div(class="container")
       type="video/mp4"
       class="video-lesson-2"
       controls
+      ref="video2"
   )
-  div(class="presentation-title video-title centered-flex") I'm flutist Reya Fountain
-  div(class="presentation-date video-date centered-flex") October 3, 2020
+  div(class="presentation-title video-title centered-flex") My Intro
+  div(class="presentation-date video-date centered-flex") October 14, 2020
   div(class="presentation-theme centered-flex-content") 
       div(class="theme centered-flex-content") music
   div(class="presentation-subtheme centered-flex-content") 
       div(class="subtheme centered-flex-content") flute
 
-  div(class="video1-title video-title centered-flex") Tutorial 1
-  div(class="video1-date video-date centered-flex") October 4, 2020
+  div(class="video1-title video-title centered-flex" ref="video1_title")
+  div(class="video1-date video-date centered-flex" ref="video1_data")
   div(class="video1-theme centered-flex-content") 
-      div(class="theme centered-flex-content") music
+      div(class="theme centered-flex-content" ref="video1_theme1") music
   div(class="video1-subtheme centered-flex-content") 
       div(class="subtheme centered-flex-content") flute
 
 
-  div(class="video2-title video-title centered-flex") Tutorial 2
+  div(class="video2-title video-title centered-flex" ref="video2_title") Tutorial 2
   div(class="video2-date video-date centered-flex") October 5, 2020
   div(class="video2-theme centered-flex-content") 
       div(class="theme centered-flex-content") music
@@ -51,7 +53,7 @@ div(class="container")
 </template>
 
 <script>
-import {LoadNewVideo, GetVideoById} from "../api/masters";
+import {LoadNewVideo, GetVideoById, GetMasterVideosInfo} from "../api/masters";
 export default {
   name: 'MasterVideos',
   props: {
@@ -60,16 +62,31 @@ export default {
   data: () => {
     return {
       userID: 1,
-      video : undefined
+      video : undefined,
+      videosInfoArray: []
     }
   },
   methods: {
-      handlePresentationUpload(){
-          this.file = this.$refs.file.files[0];
-          let formData = new FormData();
-          formData.append('video', this.file);
-          LoadNewVideo(formData, this.userID);
-      },      
+      handlePresentationUpload() {
+        this.file = this.$refs.file.files[0];
+        const introUrl = window.URL.createObjectURL(this.file);
+        this.$refs.intro.src = introUrl;
+
+        let formData = new FormData();
+        formData.append('video', this.file);
+        console.log(formData);
+        LoadNewVideo(formData, this.userID);
+      }, 
+      fillVideoInfo(data) {
+        console.log(data)
+        /*
+        const baseRef = 'video' + index;
+        const titleRef = baseRef + '_title';
+       */ 
+        this.$refs.video1_title.innerHTML = data.name;
+        this.$refs.video1_data.innerHTML = data.uploaded;
+        //this.$refs.video1_theme1.innerHTML = data.theme.value.theme;
+      }     
   },
   async mounted() {
     try {
@@ -77,6 +94,12 @@ export default {
       const blobVideo = response.data;
       const videoUrl = window.URL.createObjectURL(blobVideo);
       this.$refs.video1.src = videoUrl;
+      
+      const responseVideoInfo = await GetMasterVideosInfo(this.userID);
+      this.videosInfoArray = responseVideoInfo.data;
+      this.fillVideoInfo(this.videosInfoArray[0]);
+      console.log(this.videosInfoArray[0]);
+
     } catch (err) {
       this.error = err;
       console.log(err);

@@ -12,7 +12,6 @@ export async function LoadNewVideo(formData, userId) {
   return response;
 }
 
-
 export async function GetMasterInfo(userId) {
   const response = await httpClient.get(MASTER_END_POINT + "/" + userId);
   if (response.status !== 200) {
@@ -21,7 +20,7 @@ export async function GetMasterInfo(userId) {
   return response;
 }
 
-export async function GetMasterVideos(userId) {
+export async function GetMasterVideosInfo(userId) {
   const response = await httpClient.get(MASTER_END_POINT + "/" + userId + "/videos");
   if (response.status !== 200) {
     throw new Error(`Error to get master's videos: ${response.status}`);
