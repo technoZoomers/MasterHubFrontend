@@ -75,7 +75,12 @@ export default {
         let formData = new FormData();
         formData.append('video', this.file);
         console.log(formData);
-        LoadNewVideo(formData, this.userID);
+        try {
+          const response = LoadNewVideo(formData, this.userID);
+          console.log(response);
+        } catch (err) {
+          console.log(err);
+        }
       }, 
       fillVideoInfo(data, index) {
         console.log(data)

@@ -2,7 +2,7 @@ import httpClient from "./httpClient";
 const MASTER_END_POINT = '/masters';
 
 export async function LoadNewVideo(formData, userId) {
-  httpClient.post(MASTER_END_POINT + "/" + userId + "/videos/create", formData, 
+  const response = await httpClient.post(MASTER_END_POINT + "/" + userId + "/videos/create", formData, 
   {
     headers: {"Content-Type" :"multipart/form-data"},
   });
