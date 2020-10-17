@@ -14,7 +14,6 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 40px;
-  height: 80%;
+  height: 100%;
 }
 </style>

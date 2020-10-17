@@ -56,6 +56,7 @@ data() {
   font-weight: 100;
   font-size: 20px;
   font-variant: small-caps;
+  overflow-x: scroll;
 }
 .quotes{
   text-align: center;
@@ -90,7 +91,7 @@ data() {
   height: 100%;
 
 }
-.reviewBody::-webkit-scrollbar {
+.reviewText::-webkit-scrollbar {
   display: none;
 }
 .review{
@@ -101,7 +102,6 @@ data() {
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
-  overflow-x: scroll;
   min-width: 31%;
   min-height: 80%;
 }

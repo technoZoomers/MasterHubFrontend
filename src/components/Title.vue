@@ -1,6 +1,7 @@
 <template lang="pug">
   div.title
-    div.text MasterHub
+    div.text
+      router-link(to="/" style="color: black") MasterHub
     div.find
       router-link(to="/searchMaster") find your Master
 </template>

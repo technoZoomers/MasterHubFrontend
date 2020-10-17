@@ -19,7 +19,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   margin: 0 5px 0 5px;
-  height: 5vh;
+  height: 10%;
   min-height: fit-content;
 }
 </style>
