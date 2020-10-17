@@ -1,13 +1,11 @@
 <template lang="pug">
   div.body
-    PersonalAccount
+    router-view(name="main")
 </template>
 
 <script>
-import PersonalAccount from "@/components/PersonalAccount";
 export default {
   name: "Body",
-  components: {PersonalAccount},
 }
 </script>
 

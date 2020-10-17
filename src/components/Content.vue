@@ -1,6 +1,6 @@
 <template lang="pug">
   div.content
-    router-view
+    router-view(name="account")
 </template>
 
 
