@@ -53,6 +53,7 @@ export default {
 }
 .user__img {
   width: 60px;
+  height: 60px
 }
 .user__img_style{
   border-radius: 50px;

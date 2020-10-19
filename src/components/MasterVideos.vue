@@ -1,6 +1,6 @@
 <template lang="pug">
-div(class="container")
-  h1(class="presentation-header header page-text") Presentation
+div.container
+  h1.presentation-header.header.page-text Presentation
   video(
       src=""
       type="video/webm"
@@ -23,43 +23,45 @@ div(class="container")
       ref="video2"
       controls
   )
-  div(class="presentation-title video-title centered-flex") My Intro
-  div(class="presentation-date video-date centered-flex") October 14, 2020
-  div(class="presentation-theme centered-flex-content") 
-      div(class="theme centered-flex-content") music
-  div(class="presentation-subtheme centered-flex-content") 
-      div(class="subtheme centered-flex-content") flute
+  div.presentation-title.video-title.centered-flex My Intro
+  div.presentation-date.video-date.centered-flex October 14, 2020
+  div.presentation-theme
+    theme-button(:text="`music`")
+  div.presentation-subtheme
+    subtheme-button(:text="`flute`")
 
-  div(class="video1-title video-title centered-flex" ref="video1_title")
-  div(class="video1-date video-date centered-flex" ref="video1_data")
-  div(class="video1-theme centered-flex-content") 
-      div(class="theme centered-flex-content" ref="video1_theme1") music
-  div(class="video1-subtheme centered-flex-content") 
-      div(class="subtheme centered-flex-content") flute
+  div.video1-title.video-title.centered-flex(ref="video1_title")
+  div.video1-date.video-date.centered-flex(ref="video1_data")
+  div.video1-theme
+    theme-button(:text="`music`")
+  div.video1-subtheme
+    subtheme-button(:text="`flute`")
 
+  div.video2-title.video-title.centered-flex(ref="video2_title")
+  div.video2-date.video-date.centered-flex(ref="video2_data")
+  div.video2-theme
+    theme-button(:text="`music`")
+  div.video2-subtheme
+    subtheme-button(:text="`flute`")
 
-  div(class="video2-title video-title centered-flex" ref="video2_title")
-  div(class="video2-date video-date centered-flex" ref="video2_data")
-  div(class="video2-theme centered-flex-content") 
-      div(class="theme centered-flex-content") music
-  div(class="video2-subtheme centered-flex-content") 
-      div(class="subtheme centered-flex-content") flute
-
-  input(id="presentation-upload" type="file" ref="file" class="inputfile" @change="handlePresentationUpload()")
+  input.inputfile(id="presentation-upload" type="file" ref="file" @change="handlePresentationUpload()")
   label(for="presentation-upload" class="button button-load-presentation page-text centered-flex-content") Upload presentation
 
-  input(id="lesson-upload" type="file" class="inputfile")
+  input.inputfile(id="lesson-upload" type="file")
   label(for="lesson-upload" class="button button-load-video page-text centered-flex-content") Upload lesson
 </template>
 
 <script>
 import {LoadNewVideo, GetVideoById, GetMasterVideosInfo} from "../api/masters";
+import ThemeButton from "@/components/Buttons/ThemeButton";
+import SubthemeButton from "@/components/Buttons/SubthemeButton";
 
 export default {
   name: 'MasterVideos',
   props: {
     masterId: Number
   },
+  components: {ThemeButton, SubthemeButton},
   data: () => {
     return {
       userID: 1,
@@ -79,36 +81,44 @@ export default {
           const response = LoadNewVideo(formData, this.userID);
           console.log(response.status);
         } catch (err) {
-          console.log(err);
+          //console.log(err);
         }
       }, 
-      fillVideoInfo(data, index) {
-        const baseRef = 'video' + index;
+      fillVideoInfo1(data) {
+        /*const baseRef = 'video' + index;
         const titleRef = baseRef + '_title';
         const dataRef = baseRef + '_data';
-
-        this.$refs.[titleRef].innerHTML = data.name;
-        this.$refs.[dataRef].innerHTML = new Date(data.uploaded);
-        //this.$refs.video1_theme1.innerHTML = data.theme.value.theme;
+        */
+        this.$refs.video1_title.innerHTML = data.name;
+        this.$refs.video1_data.innerHTML = new Date(data.uploaded);
       },
-      loadDataFromResponse(response, refName) {
+      fillVideoInfo2(data) {
+        this.$refs.video2_title.innerHTML = data.name;
+        this.$refs.video2_data.innerHTML = new Date(data.uploaded);
+      },
+      loadDataFromResponse1(response) {
       const blobVideo = response.data;
       const videoUrl = window.URL.createObjectURL(blobVideo);
-      this.$refs.[refName].src = videoUrl;
-      }     
+      this.$refs.video1.src = videoUrl;
+      },
+      loadDataFromResponse2(response) {
+      const blobVideo = response.data;
+      const videoUrl = window.URL.createObjectURL(blobVideo);
+      this.$refs.video2.src = videoUrl;
+      }       
   },
   async mounted() {
     try {
       const response = await GetVideoById(this.userID, 1);
-      this.loadDataFromResponse(response, "video1");
+      this.loadDataFromResponse1(response);
       
       const response2 = await GetVideoById(this.userID, 2);
-      this.loadDataFromResponse(response2, "video2");
+      this.loadDataFromResponse2(response2);
 
       const responseVideoInfo = await GetMasterVideosInfo(this.userID);
       this.videosInfoArray = responseVideoInfo.data;
-      this.fillVideoInfo(this.videosInfoArray[0], 1);
-      this.fillVideoInfo(this.videosInfoArray[1], 2); 
+      this.fillVideoInfo1(this.videosInfoArray[0]);
+      this.fillVideoInfo2(this.videosInfoArray[1]); 
     } catch (err) {
       this.error = err;
       console.log(err);
@@ -324,19 +334,5 @@ export default {
   grid-column-end: 7;
   grid-row-start: 9;
   grid-row-end: 10;
-}
-
-.theme{
-    background-color: #FFDAAE;
-    height: 30px;
-    width: 100%;
-    border-radius: 20px;
-}
-
-.subtheme {
-    background-color: var(--red-color);
-    height: 30px;
-    width: 100%;
-    border-radius: 20px;
 }
 </style>

@@ -17,8 +17,9 @@ export default {
   padding:0;
   display: flex;
 
-  --hover-color: rgba(255, 218, 174, 1);
+  --hover-color: #FFDAAE;
   --red-color: #FF736A; 
   --project-font: "Maven Pro";
+  --down-button-color: #efeff5;
 }
 </style>
