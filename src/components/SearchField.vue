@@ -1,7 +1,7 @@
 <template lang="pug">
-  div.searchField
+  div.searchField(data-tooltip="if you want to start playing guitar, then enter 'guitar', if you want to add some music to your life but still don't know what type, just enter 'music'")
     form( @submit.prevent="search")
-      input(type="text" placeholder="Искать здесь..." ref="searchValue")
+      input(type="text" placeholder="Search here..." ref="searchValue")
 </template>
 
 <script>
@@ -11,12 +11,34 @@ name: "SearchField",
     search(){
       event.preventDefault()
       console.log("search ", this.$refs.searchValue.value) // request
+      document.querySelector('.parameters').style.visibility='visible'
     }
   }
 }
 </script>
 
 <style scoped>
+[data-tooltip] {
+  position: relative; /* Относительное позиционирование */
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip); /* Выводим текст */
+  position: absolute; /* Абсолютное позиционирование */
+  width: 300px; /* Ширина подсказки */
+  left: 0; top: 0; /* Положение подсказки */
+  background: #3989c9; /* Синий цвет фона */
+  color: #fff; /* Цвет текста */
+  padding: 0.5em; /* Поля вокруг текста */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+  pointer-events: none; /* Подсказка */
+  opacity: 0; /* Подсказка невидима */
+  transition: 1s; /* Время появления подсказки */
+  border-radius: 3px;
+}
+[data-tooltip]:hover::after {
+  opacity: 1; /* Показываем подсказку */
+  top: 3em; /* Положение подсказки */
+}
 .searchField{
   display: flex;
   flex-direction: column;

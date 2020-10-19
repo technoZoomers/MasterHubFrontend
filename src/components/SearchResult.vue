@@ -18,6 +18,12 @@
         div.subtheme
           div.help specific:
           div.lang_style {{item.subtheme}}
+        div.subtheme
+          div.help qualification:
+          div.lang_style {{item.qualification}}
+        div.subtheme
+          div.help lesson format:
+          div.lang_style {{item.format}}
       div.video
         div.title_video welcome video
         div.video_source
@@ -43,6 +49,8 @@ export default {
           'theme': 'Music',
           'subtheme': 'Gitar',
           'lang': 'english',
+          'qualification': 'professional',
+          'format': 'online',
           'video': require('../assets/test.mp4'),
         },
         {
