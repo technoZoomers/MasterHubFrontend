@@ -1,6 +1,6 @@
 <template lang="pug">
 div(class="centered-flex-content") 
-    div(class="subtheme centered-flex-content") {{text}}
+    div(class="subtheme-tag centered-flex-content") {{text}}
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style>
-.subtheme{
+.subtheme-tag {
   background-color: var(--red-color);
   height: 30px;
   width: 100%;

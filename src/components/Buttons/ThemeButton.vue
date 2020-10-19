@@ -1,6 +1,6 @@
 <template lang="pug">
 div(class="centered-flex-content") 
-    div(class="theme centered-flex-content") {{text}}
+    div(class="theme-tag centered-flex-content") {{text}}
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style>
-.theme{
+.theme-tag {
     background-color: var(--hover-color);
     height: 30px;
     width: 100%;
