@@ -2,8 +2,6 @@
   div.title
     div.text
       router-link(to="/" style="color: black") MasterHub
-    div.find
-      router-link(to="/searchMaster") find your Master
 </template>
 
 <script>
@@ -23,10 +21,6 @@ export default {
   font-weight: 100;
   font-size: 25px;
   font-variant: small-caps;
-}
-.find{
-  font-style: normal;
-  font-family: Maven Pro;
 }
 a {
   text-decoration: none;

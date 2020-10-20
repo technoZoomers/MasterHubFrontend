@@ -18,8 +18,10 @@ export default {
   display: flex;
 
   --hover-color: #FFDAAE;
-  --red-color: #FF736A; 
+  --red-color: #FF736A;
+  --red-color-hover: #b9615c; 
   --project-font: "Maven Pro";
   --down-button-color: #efeff5;
+  --image-text-color: white;
 }
 </style>

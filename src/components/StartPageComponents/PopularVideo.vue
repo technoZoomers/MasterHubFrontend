@@ -51,7 +51,6 @@ export default {
   grid-row-end: 2;
   grid-column-start: 1;
   grid-column-end: 3;
-
   width: 100%;
   height: 100%;
 }
@@ -77,6 +76,7 @@ export default {
   border-radius: 20px;
   padding: 0.5vh;
 }
+
 .video-tag-1 {
   grid-row: 2;
   grid-column: 2;

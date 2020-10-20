@@ -5,7 +5,7 @@ div.container-videos
 </template>
 
 <script>
-import PopularVideo from "@/components/PopularVideo";
+import PopularVideo from "@/components/StartPageComponents/PopularVideo";
 export default {
   name: "PopularVideoContainer",
   components: {PopularVideo},
@@ -18,7 +18,7 @@ export default {
           'title': 'Video Title',
           'theme': 'Music',
           'subtheme': 'Gitar',
-          'video': require('../assets/test.webm'),
+          'video': require('../../assets/test.webm'),
           },
           {
           'rat': '5.0',
@@ -26,7 +26,7 @@ export default {
           'title': 'Video Title',
           'theme': 'Music',
           'subtheme': 'Gitar',
-          'video': require('../assets/test.webm'),
+          'video': require('../../assets/test.webm'),
           },
           {
           'rat': '5.0',
@@ -34,7 +34,7 @@ export default {
           'title': 'Video Title',
           'theme': 'Music',
           'subtheme': 'Gitar',
-          'video': require('../assets/test.webm'),
+          'video': require('../../assets/test.webm'),
           },
           {
           'rat': '5.0',
@@ -42,7 +42,7 @@ export default {
           'title': 'Video Title',
           'theme': 'Music',
           'subtheme': 'Gitar',
-          'video': require('../assets/test.webm'),
+          'video': require('../../assets/test.webm'),
           },
                     {
           'rat': '5.0',
@@ -50,7 +50,7 @@ export default {
           'title': 'Video Title',
           'theme': 'Music',
           'subtheme': 'Gitar',
-          'video': require('../assets/test.webm'),
+          'video': require('../../assets/test.webm'),
           },
           {
           'rat': '5.0',
@@ -58,7 +58,7 @@ export default {
           'title': 'Video Title',
           'theme': 'Music',
           'subtheme': 'Gitar',
-          'video': require('../assets/test.webm'),
+          'video': require('../../assets/test.webm'),
           },
           {
           'rat': '5.0',
@@ -66,7 +66,7 @@ export default {
           'title': 'Video Title',
           'theme': 'Music',
           'subtheme': 'Gitar',
-          'video': require('../assets/test.webm'),
+          'video': require('../../assets/test.webm'),
           },
           {
           'rat': '5.0',
@@ -74,7 +74,7 @@ export default {
           'title': 'Video Title',
           'theme': 'Music',
           'subtheme': 'Gitar',
-          'video': require('../assets/test.webm'),
+          'video': require('../../assets/test.webm'),
           },
           {
           'rat': '5.0',
@@ -82,7 +82,7 @@ export default {
           'title': 'Video Title',
           'theme': 'Music',
           'subtheme': 'Gitar',
-          'video': require('../assets/test.webm'),
+          'video': require('../../assets/test.webm'),
           },     
         ]
       }
@@ -97,6 +97,7 @@ export default {
   flex-direction: row;
   width: 90% ;
 }
+
 .flex-child {
   flex: 1 0 30%;
   margin-right: calc(10px + 1vw);
