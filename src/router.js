@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from  'vue-router'
 import Settings from "@/components/Settings";
 import MasterVideos from "@/components/MasterVideos";
-import Chats from "@/components/Chats";
+import ChatList from "@/components/ChatComponents/ChatList";
 import Schedule from "@/components/Schedule";
 import Reviews from "@/components/Reviews";
 import Dialog from "@/components/Dialog";
@@ -63,13 +63,13 @@ const routes = [
             },
             {
                 path: "/account/chats",
-                name: "Chats",
+                name: "ChatList",
                 components:{
-                    account:Chats
-                }
+                    account:ChatList
+                },
             },
             {
-                path: "/dialog/:id",
+                path: "/account/dialog/",
                 name: "Dialog",
                 components:{
                     account:Dialog
