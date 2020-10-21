@@ -32,8 +32,8 @@ export default {
 }
 
 .icon {
-  max-width: 45%;
-  max-height: 50%;
+  max-width: 65%;
+  max-height: 65%;
 }
 
 .name-container {

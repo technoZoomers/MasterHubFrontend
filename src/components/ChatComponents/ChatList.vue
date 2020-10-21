@@ -17,8 +17,8 @@ export default {
         {
           'id': 0,
           'userImage': require('../../assets/pics/default_user.png'),
-          'name': 'Avani Hancock',
-          'message': 'Hello, I really liked your video presentation, can we appoint a lesson?',
+          'name': 'Lucille Wilkerson',
+          'message': 'Hi, do you have lessons on the weekend?',
         },
         {
           'id': 1,
@@ -29,8 +29,8 @@ export default {
         {
           'id': 2,
           'userImage': require('../../assets/pics/default_user.png'),
-          'name': 'Mila Smith',
-          'message': 'Hi, do you have lessons on the weekend?',
+          'name': 'Avani Hancock',
+          'message': 'Hello, I really liked your video presentation, can we appoint a lesson?',
         },
       ]
     }

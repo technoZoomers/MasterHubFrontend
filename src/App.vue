@@ -23,5 +23,7 @@ export default {
   --project-font: "Maven Pro";
   --down-button-color: #efeff5;
   --image-text-color: white;
+  --chat-color: rgba(255, 222, 213, 0.3);
+  --chat-color-intensive: rgba(255, 222, 213, 0.7);
 }
 </style>
