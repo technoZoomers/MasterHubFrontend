@@ -14,10 +14,11 @@
       option(value="offline") live
     div.apply_button
       input.apply_btn(type='submit' value="apply" @click="applyFilters")
+      input.apply_btn(type='reset' value="reset" @click="resetFilters" style="background-color: darkgrey; margin-left:5px")
 </template>
 
 <script>
-import {GetSearchFilters} from "@/api/search";
+import {GetSearch, GetSearchFilters} from "@/api/search";
 
 export default {
   name: "SearchFilters",
@@ -51,6 +52,21 @@ export default {
         console.log(err);
       }
       console.log(query)
+    },
+    resetFilters(){
+      document.querySelectorAll(".select_filters").forEach(selected=>{
+        selected.selectedIndex=0
+      })
+      try {
+        GetSearch(this.$store.state.theme).then(
+            res=>{
+              this.$store.commit('setSearchRes', res.data)
+              console.log("RESEt",this.$store.state.searchRes)
+            }
+        )
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 }

@@ -17,8 +17,8 @@ export default {
   },
   methods:{
     selectedItem(e){
+      this.$store.commit('setTheme', e.target.innerHTML)
       try {
-        this.$store.commit('setTheme', e.target.innerHTML)
         GetSearch(e.target.innerHTML).then(
             res=>{
               this.$store.commit('setSearchRes', res.data)
