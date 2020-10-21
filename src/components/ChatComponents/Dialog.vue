@@ -5,12 +5,12 @@ div(class="container-chat")
   div(class="chat-name-container centered-flex-content")
     div(class="chat-name") Lucille Wilkerson
   div(class="person-icon-container centered-flex")
-    img(class="img-person" src="../assets/pics/default_user.png")
+    img(class="img-person" src="../../assets/pics/default_user.png")
   div(class="messages-container")
   div(class="textarea-container")
-      textarea
-  div(class="sent-button-container")
-    img(class="img-sent" src="../assets/pics/sent.png")
+      textarea(@input="showSendIcon")
+  div(class="sent-button-container invisible-image")
+    img(class="img-sent" src="../../assets/pics/sent.png")
 </template>
 
 <script>
@@ -21,13 +21,21 @@ export default {
     }
   },
   methods: {
-
+    showSendIcon() {
+      
+    //var div = document.getElementById('intro');
+    
+    //div.classList.remove('myClass');
+    }
   }
 }
 </script>
 
 
 <style scoped>
+.invisible-image {
+  display: none;
+}
 .container-chat {
   display: grid;
   grid-template-rows: 10% 65% 25%;

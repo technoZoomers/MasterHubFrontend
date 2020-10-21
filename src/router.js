@@ -5,7 +5,7 @@ import MasterVideos from "@/components/MasterVideos";
 import ChatList from "@/components/ChatComponents/ChatList";
 import Schedule from "@/components/Schedule";
 import Reviews from "@/components/Reviews";
-import Dialog from "@/components/Dialog";
+import Dialog from "@/components/ChatComponents/Dialog";
 import StartPage from "@/components/StartPage";
 import PersonalAccount from "@/components/PersonalAccount";
 import SearchMaster from "@/components/SearchMaster";
