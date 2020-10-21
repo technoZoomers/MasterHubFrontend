@@ -11,51 +11,46 @@
         div.personal_name
           div.full_name
             div.title_style full name
-            textarea.name(rows="1" cols="1" style="width: 80%; max-width: 80%; border:none; resize: none") {{fullname}}
+            textarea.name(rows="1" cols="1" style="width: 80%; max-width: 80%; border:none; resize: none") {{master.fullname}}
           div.username
             div.title_style username
-            textarea.name(rows="1" cols="1" style="width: 80%; max-width: 80%; border:none; resize: none") {{username}}
+            textarea.name(rows="1" cols="1" style="width: 80%; max-width: 80%; border:none; resize: none") {{master.username}}
         div.personal_description
           div.title_style description
           div.description_text
-            textarea(rows="10" cols="50" style="width: 80%; max-width: 80%; resize: none;border: 1px solid #FF736A!important;\n" +
-            "    border-radius: 10px;") {{ description }}
+            textarea.textarea_description(rows="10" cols="50" style="width: 80%; max-width: 80%; resize: none;border: 1px solid #FF736A!important;\n" +
+            "    border-radius: 10px;") {{ master.description }}
       div.settings_title_small account settings
       div.account_settings
         div.account_set
           div.field your language
           div.input_field
-            input(type="text" :value="language")
+            input.input_field__i(type="text" :value="master.language")
         div.account_set
           div.field your qualification
           div.input_field
-            input(type="text" :value="qualification")
+            input.input_field__i(type="text" :value="master.qualification")
         div.account_set
           div.field your theme
           div.input_field
-            input(type="text" :value="theme")
+            input.input_field__i(type="text" :value="master.theme.theme")
         div.account_set
           div.field your subthemes
           div.input_field
-            input(type="text" :value="subthemes")
+            input.input_field__i(type="text" :value="master.theme.subthemes")
       div.save
-        input(type='submit' value="Save" style="background-color: #FF736A; border: none")
+        input(type='submit' value="Save" style="background-color: #FF736A; border: none" @click="saveSettings")
 </template>
 
 <script>
-import axios from 'axios';
+
+import {GetMasterInfo, PutMasterInfo} from "@/api/masters";
 
 export default {
-  data() {
-    return {
-      description: null,
-      fullname: null,
-      username: null,
-      language:[],
-      qualification: null,
-      theme: null,
-      subthemes: null
-    };
+  computed:{
+    master(){
+      return this.$store.state.master
+    }
   },
   name: "Settings",
   methods: {
@@ -74,21 +69,46 @@ export default {
         pic[0].src = '../assets/pics/user.jpg';
         pic[1].src = '../assets/pics/user.jpg';
       }
+    },
+    saveSettings(){
+      let names = document.querySelectorAll(".name")
+      let description = document.querySelector(".textarea_description")
+      let inputs = document.querySelectorAll(".input_field__i")
+      let data = {
+        "userId": 2,
+        "username": names[1].value,
+        "description": description.value,
+        "fullName": names[0].value,
+        "language": inputs[0].value.split(','),
+        "theme": {
+          "theme": inputs[2].value,
+          "subthemes": [
+            inputs[3].value
+          ]
+        },
+        "qualification": inputs[1]
+      }
+      console.log("data",data)
+      try{
+        PutMasterInfo(2, data).then(res=>{
+          this.$store.commit('setMaster', res.data)
+        })
+      }
+      catch (err) {
+        console.log(err);
+      }
     }
 
   },
-  mounted() {
-    axios
-        .get('https://sleepy-brushlands-78726.herokuapp.com/masters/2')
-        .then(response => (
-            this.description = response.data.description,
-            this.fullname = response.data.fullname,
-            this.username = response.data.username,
-            this.language = response.data.language,
-            this.qualification = response.data.qualification,
-            this.theme = response.data.theme.theme,
-            this.subthemes = response.data.theme.subthemes
-        ));
+  beforeCreate() {
+    try{
+      GetMasterInfo(2).then(res=>{
+        this.$store.commit('setMaster', res.data)
+      })
+    }
+    catch (err) {
+      console.log(err);
+    }
   }
 }
 </script>

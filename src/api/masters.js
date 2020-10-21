@@ -20,6 +20,14 @@ export async function GetMasterInfo(userId) {
   return response;
 }
 
+export async function PutMasterInfo(userId, data) {
+  const response = await httpClient.put(MASTER_END_POINT + "/" + userId, data,{headers: {'Access-Control-Allow-Origin': '*'}});
+  if (response.status !== 200) {
+    throw new Error(`Error to get master's info: ${response.status}`);
+  }
+  return response;
+}
+
 export async function GetMasterVideosInfo(userId) {
   const response = await httpClient.get(MASTER_END_POINT + "/" + userId + "/videos");
   if (response.status !== 200) {

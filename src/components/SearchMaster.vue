@@ -7,10 +7,23 @@
 <script>
 import SearchPlace from "@/components/SearchPlace";
 import SearchResult from "@/components/SearchResult";
+import {SearchAllMasters} from "@/api/search";
 
 export default {
   name: "SearchComponent",
-  components:{SearchPlace,SearchResult }
+  components:{SearchPlace,SearchResult },
+  beforeCreate: function () {
+    try{
+
+      SearchAllMasters().then(res=>{
+        this.$store.commit('setSearchRes', res.data)
+        console.log("on open page",this.$store.state.searchRes)
+      })
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
 }
 </script>
 

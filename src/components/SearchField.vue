@@ -5,13 +5,26 @@
 </template>
 
 <script>
+import {GetSearch} from "@/api/search";
+
 export default {
 name: "SearchField",
   methods:{
     search(){
       event.preventDefault()
-      console.log("search ", this.$refs.searchValue.value) // request
+      this.$store.commit('setTheme', this.$refs.searchValue.value)
+      try {
+        GetSearch(this.$refs.searchValue.value).then(
+            res=>{
+              this.$store.commit('setSearchRes', res.data)
+              console.log("DATA",this.$store.state.searchRes)
+            }
+        )
+      } catch (err) {
+        console.log(err);
+      }
       document.querySelector('.parameters').style.visibility='visible'
+
     }
   }
 }

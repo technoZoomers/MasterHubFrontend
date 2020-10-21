@@ -6,16 +6,27 @@
 </template>
 
 <script>
+import {GetSearch} from "@/api/search";
+
 export default {
   name: "SearchParametrs",
   data() {
     return {
-      items: ["Языки ", "Спорт ", "Музыка ", "Автомобили ", "Кулинария ", "Танцы ", "Наука ", "IT", "Дизайн","Живопись"]
+      items: ["Languages ", "Sports ", "Music ", "Auto ", "Cooking ", "Dancing ", "Science ", "IT", "Design","Art"]
     }
   },
   methods:{
     selectedItem(e){
-      console.log('selected', e.target.innerHTML) // request
+      try {
+        GetSearch(e.target.innerHTML).then(
+            res=>{
+              this.$store.commit('setSearchRes', res.data)
+            }
+        )
+      } catch (err) {
+        console.log(err);
+      }
+      document.querySelector('.parameters').style.visibility='visible'
     }
   }
 }
