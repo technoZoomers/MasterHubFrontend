@@ -2,31 +2,55 @@
   div.parameters
     select.select_filters
       option(disabled selected value="lang") language
-      option(value="ru") russian
-      option(value="eng") english
+      option(value="ru") ru
+      option(value="eng") en
     select.select_filters
-      option(disabled selected value="master") master
+      option(disabled selected value="master") qualification
       option(value="professional") professional
-      option(value="amateur") amateur
+      option(value="amateur") self-educated
     select.select_filters
       option(disabled selected value="format") education format
       option(value="online") online
-      option(value="offline") offline
+      option(value="offline") live
     div.apply_button
       input.apply_btn(type='submit' value="apply" @click="applyFilters")
 </template>
 
 <script>
+import {GetSearchFilters} from "@/api/search";
+
 export default {
   name: "SearchFilters",
   methods:{
     applyFilters(){
       let filters = document.querySelectorAll('.select_filters')
-      let preferences =[]
+      let preferences = {}
+      let defaults = ["language","qualification","education format"]
+      let i = 0
       filters.forEach((filter)=>{
-        preferences.push(filter.options[filter.selectedIndex].text)
+        if(!defaults.includes(filter.options[filter.selectedIndex].text)){
+          preferences[defaults[i]] = filter.options[filter.selectedIndex].text
+        }
+        i++
       })
-      console.log(preferences)
+      let query = ''
+      for (let [k, v] of Object.entries(preferences)) {
+        if(k=="education format"){
+          query += '&educationFormat='+v.toString()
+        }else{
+          query += '&' + k.toString()+'='+v.toString()
+        }
+      }
+      try{
+        GetSearchFilters(this.$store.state.theme, query).then(res=>{
+          this.$store.commit('setSearchRes', res.data)
+          console.log("after filters",this.$store.state.searchRes)
+        })
+      }
+      catch (err) {
+        console.log(err);
+      }
+      console.log(query)
     }
   }
 }

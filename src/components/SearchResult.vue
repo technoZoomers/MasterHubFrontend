@@ -3,32 +3,32 @@
     div.master_blocks_loop(v-for="item in items")
       div.image_rating_button
         div.img
-          img.pic__img(:src = "item.img")
-        div.rat {{item.rat}} ⭐
+          img.pic__img(src = '../assets/pics/user.jpg')
+        div.rat 5.0 ⭐
         div.choose
           input.choose_btn(type='submit' value="assign")
       div.name_info
-        div.name  {{item.name}}
+        div.name  {{item.fullname}}
         div.lang
           div.help language of teaching:
-          div.lang_style {{item.lang}}
+          div.lang_style {{item.language}}
         div.theme
           div.help teaches:
-          div.lang_style {{item.theme}}
+          div.lang_style {{item.theme.theme}}
         div.subtheme
           div.help specific:
-          div.lang_style {{item.subtheme}}
+          div.lang_style {{item.theme.subthemes}}
         div.subtheme
           div.help qualification:
           div.lang_style {{item.qualification}}
         div.subtheme
           div.help lesson format:
-          div.lang_style {{item.format}}
+          div.lang_style {{item.educationFormat}}
       div.video
         div.title_video welcome video
         div.video_source
           video.video_source_video(
-            :src="item.video"
+            src='../assets/test.mp4'
             type="video/webm"
             controls
           )
@@ -39,66 +39,9 @@
 <script>
 export default {
   name: "SearchResult",
-  data() {
-    return {
-      items: [
-        {
-          'img': require('../assets/pics/user.jpg'),
-          'rat': '5.0',
-          'name': 'Steve Wosniak',
-          'theme': 'Music',
-          'subtheme': 'Gitar',
-          'lang': 'english',
-          'qualification': 'professional',
-          'format': 'online',
-          'video': require('../assets/test.mp4'),
-        },
-        {
-          'img': require('../assets/pics/user.jpg'),
-          'rat': '5.0',
-          'name': 'Steve Wosniak',
-          'theme': 'Music',
-          'subtheme': 'Gitar',
-          'lang': 'english',
-          'video': require('../assets/test.mp4'),
-        },
-        {
-          'img': require('../assets/pics/user.jpg'),
-          'rat': '5.0',
-          'name': 'Steve Wosniak',
-          'theme': 'Music',
-          'subtheme': 'Gitar',
-          'lang': 'english',
-          'video': require('../assets/test.mp4'),
-        },
-        {
-          'img': require('../assets/pics/user.jpg'),
-          'rat': '5.0',
-          'name': 'Steve Wosniak',
-          'theme': 'Music',
-          'subtheme': 'Gitar',
-          'lang': 'english',
-          'video': require('../assets/test.mp4'),
-        },
-        {
-          'img': require('../assets/pics/user.jpg'),
-          'rat': '5.0',
-          'name': 'Steve Wosniak',
-          'theme': 'Music',
-          'subtheme': 'Gitar',
-          'lang': 'english',
-          'video': require('../assets/test.mp4'),
-        },
-        {
-          'img': require('../assets/pics/user.jpg'),
-          'rat': '5.0',
-          'name': 'Steve Wosniak',
-          'theme': 'Music',
-          'subtheme': 'Gitar',
-          'lang': 'english',
-          'video': require('../assets/test.mp4'),
-        },
-      ]
+  computed:{
+    items(){
+      return this.$store.state.searchRes
     }
   },
 }
