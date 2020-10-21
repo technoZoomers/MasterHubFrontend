@@ -12,12 +12,13 @@ export default {
   name: "SearchParametrs",
   data() {
     return {
-      items: ["Languages ", "Sports ", "Music ", "Auto ", "Cooking ", "Dancing ", "Science ", "IT", "Design","Art"]
+      items: ["Languages", "Sports", "Music", "Auto", "Cooking", "Dancing", "Science", "IT", "Design","Art"]
     }
   },
   methods:{
     selectedItem(e){
       try {
+        this.$store.commit('setTheme', e.target.innerHTML)
         GetSearch(e.target.innerHTML).then(
             res=>{
               this.$store.commit('setSearchRes', res.data)
