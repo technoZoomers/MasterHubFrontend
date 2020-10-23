@@ -1,6 +1,6 @@
 <template lang="pug">
 div.container
-  img.main-image(src="../assets/pics/main page.webp")
+  img.main-image(src="../../../../assets/pics/main page.webp")
   div.centered-flex.image-text Find tutor and community for your interest
   div.centered-flex.text
     router-link(to="/searchMaster" tag="div" class="seach-button") Search master
@@ -19,11 +19,11 @@ div.container
 </template>
 
 <script>
-import PopularVideoContainer from "@/components/StartPageComponents/PopularVideoContainer";
+import PopularVideoContainer from "@/components/Body/Main/StartPage/StartPageComponents/PopularVideoContainer";
 import DownButton from "@/components/Buttons/DownButton";
-import InfoContainer from "@/components/StartPageComponents/InfoContainer";
-import ContactUs from "@/components/StartPageComponents/ContactUs";
-import SelectLanguage from "@/components/StartPageComponents/SelectLanguage";
+import InfoContainer from "@/components/Body/Main/StartPage/StartPageComponents/InfoContainer";
+import ContactUs from "@/components/Body/Main/StartPage/StartPageComponents/ContactUs";
+import SelectLanguage from "@/components/Body/Main/StartPage/StartPageComponents/SelectLanguage";
 
 export default {
 name: "StartPage",

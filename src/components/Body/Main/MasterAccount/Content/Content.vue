@@ -5,7 +5,7 @@
 
 
 <script>
-import MasterVideos from "@/components/MasterVideos";
+import MasterVideos from "@/components/Body/Main/MasterAccount/Content/Pages/MasterVideos";
 
 export default {
   name: "Content",

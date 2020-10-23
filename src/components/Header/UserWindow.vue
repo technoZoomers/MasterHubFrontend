@@ -4,13 +4,13 @@
       div.text
         a.user__name_style Super Master
         a.user__name_style Master of Music
-      img.user__img.user__img_style(src = '../assets/pics/user.jpg' @click="show = !show")
+      img.user__img.user__img_style(src = '../../assets/pics/user.jpg' @click="show = !show")
     div.hidden(v-if="show")
       FullInfo
 </template>
 
 <script>
-import FullInfo from "@/components/FullInfo";
+import FullInfo from "@/components/Header/FullInfo";
 export default {
   name: "UserWindow",
   data() {

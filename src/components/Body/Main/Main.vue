@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import Header from "./Header";
-import Body from "./Body";
+import Header from "../../Header/Header";
+import Body from "../Body";
 export default {
   name: "Main",
   components: {

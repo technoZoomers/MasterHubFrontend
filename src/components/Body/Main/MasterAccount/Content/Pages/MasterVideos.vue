@@ -52,7 +52,7 @@ div.container
 </template>
 
 <script>
-import {LoadNewVideo, GetVideoById, GetMasterVideosInfo} from "../api/masters";
+import {LoadNewVideo, GetVideoById, GetMasterVideosInfo} from "../../../../../../api/masters";
 import ThemeButton from "@/components/Buttons/ThemeButton";
 import SubthemeButton from "@/components/Buttons/SubthemeButton";
 

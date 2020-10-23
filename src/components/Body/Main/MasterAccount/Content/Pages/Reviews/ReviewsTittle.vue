@@ -1,6 +1,6 @@
 <template lang="pug">
   div.review_pic
-    img.review_pic__img(src = '../assets/pics/reviewTittle.jpg')
+    img.review_pic__img(src = '../../../../../../../assets/pics/reviewTittle.jpg')
 </template>
 
 <script>

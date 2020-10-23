@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import SearchPlace from "@/components/SearchPlace";
-import SearchResult from "@/components/SearchResult";
+import SearchPlace from "@/components/Body/Main/Search/Place/SearchPlace";
+import SearchResult from "@/components/Body/Main/Search/Result/SearchResult";
 import {SearchAllMasters} from "@/api/search";
 
 export default {

@@ -1,7 +1,7 @@
 <template lang="pug">
   div.hiddenInfo
     div.pic
-      img.user__img.user__img_style(src = '../assets/pics/user.jpg' @click="show = !show")
+      img.user__img.user__img_style(src = '../../assets/pics/user.jpg' @click="show = !show")
     div.content
       div.text
         div.text_inside_text

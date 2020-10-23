@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import UserWindow from "@/components/UserWindow";
-import Title from "@/components/Title";
+import UserWindow from "@/components/Header/UserWindow";
+import Title from "@/components/Header/Title";
 export default {
   name: "Header",
   components: {Title, UserWindow}

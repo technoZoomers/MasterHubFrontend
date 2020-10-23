@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import SearchParametrs from "@/components/SearchParametrs";
-import SearchField from "@/components/SearchField";
-import SearchFilters from "@/components/SearchFilters";
+import SearchParametrs from "@/components/Body/Main/Search/Place/Filters/SearchParametrs";
+import SearchField from "@/components/Body/Main/Search/Place/Filters/SearchField";
+import SearchFilters from "@/components/Body/Main/Search/Place/Filters/SearchFilters";
 
 export default {
 name: "SearchPlace",
