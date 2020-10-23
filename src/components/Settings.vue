@@ -86,7 +86,7 @@ export default {
             inputs[3].value
           ]
         },
-        "qualification": inputs[1]
+        "qualification": inputs[1].value
       }
       console.log("data",data)
       try{
