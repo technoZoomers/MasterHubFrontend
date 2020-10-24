@@ -9,7 +9,7 @@ div.container
   div.centered-flex.text(id="popularLessons")
     div.main-header Popular lessons
   div.centered-flex
-    PopularVideoContainer
+    PopularVideosContainer
   div.centered-flex
     InfoContainer
   div.revert-flex
@@ -19,7 +19,7 @@ div.container
 </template>
 
 <script>
-import PopularVideoContainer from "@/components/StartPageComponents/PopularVideoContainer";
+import PopularVideosContainer from "@/components/StartPageComponents/PopularVideosContainer";
 import DownButton from "@/components/Buttons/DownButton";
 import InfoContainer from "@/components/StartPageComponents/InfoContainer";
 import ContactUs from "@/components/StartPageComponents/ContactUs";
@@ -27,7 +27,7 @@ import SelectLanguage from "@/components/StartPageComponents/SelectLanguage";
 
 export default {
 name: "StartPage",
-components: {PopularVideoContainer, DownButton, InfoContainer, ContactUs, SelectLanguage},
+components: {PopularVideosContainer, DownButton, InfoContainer, ContactUs, SelectLanguage},
 }
 </script>
 

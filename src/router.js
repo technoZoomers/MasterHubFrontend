@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from  'vue-router'
 import Settings from "@/components/Settings";
-import MasterVideos from "@/components/MasterVideos";
+import MasterVideosContainer from "@/components/MasterVideos/MasterVideosContainer";
 import ChatList from "@/components/ChatComponents/ChatList";
 import Schedule from "@/components/Schedule";
 import Reviews from "@/components/Reviews";
@@ -42,9 +42,9 @@ const routes = [
             },
             {
                 path: '/account/lessons',
-                name: "MasterVideos",
+                name: "MasterVideosContainer",
                 components:{
-                    account:MasterVideos
+                    account:MasterVideosContainer
                 }
             },
             {

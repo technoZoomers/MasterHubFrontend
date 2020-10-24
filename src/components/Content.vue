@@ -5,11 +5,11 @@
 
 
 <script>
-import MasterVideos from "@/components/MasterVideos";
+import MasterVideosContainer from "@/components/MasterVideos/MasterVideosContainer";
 
 export default {
   name: "Content",
-  components: {MasterVideos}
+  components: {MasterVideosContainer}
 }
 </script>
 

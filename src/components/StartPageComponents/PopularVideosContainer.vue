@@ -7,7 +7,7 @@ div.container-videos
 <script>
 import PopularVideo from "@/components/StartPageComponents/PopularVideo";
 export default {
-  name: "PopularVideoContainer",
+  name: "PopularVideosContainer",
   components: {PopularVideo},
   data() {
       return {

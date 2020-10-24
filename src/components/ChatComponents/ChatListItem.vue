@@ -12,7 +12,7 @@ div.chat-item-container
 <script>
 export default {
   name: "ChatListItem",
-    props: {
+  props: {
     id: Number,
     userImage: String,
     name: String,
