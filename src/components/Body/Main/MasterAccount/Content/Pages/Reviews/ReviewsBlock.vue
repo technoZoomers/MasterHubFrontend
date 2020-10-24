@@ -5,7 +5,7 @@
         img.review_pic__img(:src = "item.pic")
       div.reviewerName {{item.name}}
       div.quotes
-        img.quotes__img(src = "../assets/pics/quotes.png")
+        img.quotes__img(src = "../../../../../../../assets/pics/quotes.png")
       div.reviewText {{item.review}}
 </template>
 
@@ -16,27 +16,27 @@ data() {
   return {
     items: [
       {
-        pic: require('../assets/pics/user.jpg'),
+        pic: require('../../../../../../../assets/pics/user.jpg'),
         name: 'Sam',
         review: "cool"
       },
       {
-        pic: require('../assets/pics/user.jpg'),
+        pic: require('../../../../../../../assets/pics/user.jpg'),
         name: 'Sam',
         review: 'Did a review give you a high star rating but mentioned soDid a review give you a high star rating but mentioned soDid a review give you a high star rating but mentioned some negative experiences in the review response?'
       },
       {
-        pic: require('../assets/pics/user.jpg'),
+        pic: require('../../../../../../../assets/pics/user.jpg'),
         name: 'Sam',
         review: 'Did a review give you a high star rating but mentioned some negative experiences in the review response? This is a valuable opportunity to show how your business responds to feedback. Thank the customer for their responDid a review give you a high star rating but mentioned soDid a review give you a high star rating but mentioned soDid a review give you a high star rating but mentioned soDid a review give you a high star rating but mentioned sose and explain the steps you are taking to improve. '
       },
       {
-        pic: require('../assets/pics/user.jpg'),
+        pic: require('../../../../../../../assets/pics/user.jpg'),
         name: 'Sam',
         review: 'Did a review give you a high star rating but mentioned some negative experiences in the review response? This is a valuable opportunity to show how your business responds to feedback. Thank the customer for their response and explain the steps you are taking to improve. '
       },
       {
-        pic: require('../assets/pics/user.jpg'),
+        pic: require('../../../../../../../assets/pics/user.jpg'),
         name: 'Sam',
         review: 'Did a review give you a high star rating but mentioned some negative experiences in the review response? This is a valuable opportunity to show how your business responds to feedback. Thank the customer for their response and explain the steps you are taking to improve. '
       },

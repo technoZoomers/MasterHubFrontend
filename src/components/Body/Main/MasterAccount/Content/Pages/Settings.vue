@@ -5,7 +5,7 @@
       div.settings_title_small personal settings
       div.personal_settings
         div.personal_pic
-          img.user__img.user__img_style(src='../assets/pics/user.jpg')
+          img.user__img.user__img_style(src='../../../../../../assets/pics/user.jpg')
           label.change_photo(for="change_pic") change photo
           input(@change="change_photo" type="file" style="display: none;" id="change_pic")
         div.personal_name
@@ -66,8 +66,8 @@ export default {
       if (file) {
         reader.readAsDataURL(file);
       } else {
-        pic[0].src = '../assets/pics/user.jpg';
-        pic[1].src = '../assets/pics/user.jpg';
+        pic[0].src = '../../assets/pics/user.jpg';
+        pic[1].src = '../../assets/pics/user.jpg';
       }
     },
     saveSettings(){
@@ -86,7 +86,7 @@ export default {
             inputs[3].value
           ]
         },
-        "qualification": inputs[1]
+        "qualification": inputs[1].value
       }
       console.log("data",data)
       try{

@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from  'vue-router'
-import Settings from "@/components/Settings";
+import Settings from "@/components/Body/Main/MasterAccount/Content/Pages/Settings";
 import MasterVideosContainer from "@/components/MasterVideos/MasterVideosContainer";
-import ChatList from "@/components/ChatComponents/ChatList";
-import Schedule from "@/components/Schedule";
-import Reviews from "@/components/Reviews";
-import Dialog from "@/components/ChatComponents/Dialog";
-import StartPage from "@/components/StartPage";
-import PersonalAccount from "@/components/PersonalAccount";
-import SearchMaster from "@/components/SearchMaster";
+import ChatList from "@/components/Body/Main/MasterAccount/Content/Pages/ChatComponents/ChatList";
+import Schedule from "@/components/Body/Main/MasterAccount/Content/Pages/Schedule"; 
+import Reviews from "@/components/Body/Main/MasterAccount/Content/Pages/Reviews/Reviews";
+import Dialog from "@/components/Body/Main/MasterAccount/Content/Pages/ChatComponents/Dialog";
+import StartPage from "@/components/Body/Main/StartPage/StartPage";
+import PersonalAccount from "@/components/Body/Main/MasterAccount/PersonalAccount.vue";
+import SearchMaster from "@/components/Body/Main/Search/SearchMaster";
 
 Vue.use(VueRouter);
 const routes = [

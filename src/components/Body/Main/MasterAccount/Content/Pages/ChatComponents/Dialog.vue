@@ -4,24 +4,24 @@ div.container-chat-flex
     div.top-border-container
     div.back-button-container
       router-link(to="/account/chats")
-        img.icon-chat(src="../../assets/pics/back-button.svg")
+        img.icon-chat(src="../../../../../../../assets/pics/back-button.svg")
     div.chat-name-container.centered-flex-content
       div.chat-name Lucille Wilkerson
     div.person-icon-container.centered-flex
-      img.icon-chat(src="../../assets/pics/videocall-button.svg")
-      img.icon-chat(src="../../assets/pics/default_user.png")
+      img.icon-chat(src="../../../../../../../assets/pics/videocall-button.svg")
+      img.icon-chat(src="../../../../../../../assets/pics/default_user.png")
     div.color-container
     div.messages-grid
       div.messages-flex
         div.one-message-flex
-          img.icon-chat(src="../../assets/pics/default_user.png")
+          img.icon-chat(src="../../../../../../../assets/pics/default_user.png")
           div.messages-text Hi, do you have lessons on the weekend?
     div.bottom-border-container
     div.textarea-container
       div.textarea-flex
         textarea(@input="showSendIcon")
     div(class="sent-button-container invisible-image" id="sent-button")
-      img(class="img-sent" src="../../assets/pics/sent.png")
+      img(class="img-sent" src="../../../../../../../assets/pics/sent.png")
 </template>
 
 <script>

@@ -5,7 +5,7 @@ div.container-videos
 </template>
 
 <script>
-import PopularVideo from "@/components/StartPageComponents/PopularVideo";
+import PopularVideo from "@/components/Body/Main/StartPage/StartPageComponents/PopularVideo";
 export default {
   name: "PopularVideosContainer",
   components: {PopularVideo},
@@ -17,63 +17,63 @@ export default {
           'title': 'noname',
           'theme': 'music',
           'subtheme': 'gitar',
-          'video': require('../../assets/videos/2.webm'),
+          'video': require('../../../../../assets/videos/2.webm'),
           },
           {
           'name': 'Master 2',
           'title': 'noname',
           'theme': 'cooking',
           'subtheme': 'workshop',
-          'video': require('../../assets/videos/3.webm'),
+          'video': require('../../../../../assets/videos/3.webm'),
           },
           {
           'name': 'Master 3',
           'title': 'noname',
           'theme': 'media',
           'subtheme': 'noname',
-          'video': require('../../assets/videos/4.webm'),
+          'video': require('../../../../../assets/videos/4.webm'),
           },
           {
           'name': 'Master 4',
           'title': 'noname',
           'theme': 'sports',
           'subtheme': 'noname',
-          'video': require('../../assets/videos/5.webm'),
+          'video': require('../../../../../assets/videos/5.webm'),
           },
           {
           'name': 'Master 5',
           'title': 'noname',
           'theme': 'photo',
           'subtheme': 'noname',
-          'video': require('../../assets/videos/6.webm'),
+          'video': require('../../../../../assets/videos/6.webm'),
           },
           {
           'name': 'Master 6',
           'title': 'noname',
           'theme': 'cooking',
           'subtheme': 'null',
-          'video': require('../../assets/videos/7.webm'),
+          'video': require('../../../../../assets/videos/7.webm'),
           },
           {
           'name': 'Master 7',
           'title': 'noname',
           'theme': 'music',
           'subtheme': 'null',
-          'video': require('../../assets/videos/8.webm'),
+          'video': require('../../../../../assets/videos/8.webm'),
           },
           {
           'name': 'Master 8',
           'title': 'noname',
           'theme': 'music',
           'subtheme': 'null',
-          'video': require('../../assets/videos/2.webm'),
+          'video': require('../../../../../assets/videos/2.webm'),
           },
           {
           'name': 'Master 9',
           'title': 'noname',
           'theme': 'music',
           'subtheme': 'null',
-          'video': require('../../assets/videos/3.webm'),
+          'video': require('../../../../../assets/videos/3.webm'),
           },     
         ]
       }

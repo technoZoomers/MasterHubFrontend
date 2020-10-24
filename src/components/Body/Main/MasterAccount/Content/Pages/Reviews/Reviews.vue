@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import ReviewsBlock from "@/components/ReviewsBlock";
-import ReviewsTittle from "@/components/ReviewsTittle";
+import ReviewsBlock from "@/components/Body/Main/MasterAccount/Content/Pages/Reviews/ReviewsBlock";
+import ReviewsTittle from "@/components/Body/Main/MasterAccount/Content/Pages/Reviews/ReviewsTittle";
 
 export default {
   name: "Reviews",

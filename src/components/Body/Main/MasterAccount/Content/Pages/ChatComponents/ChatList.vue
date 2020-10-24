@@ -7,7 +7,7 @@ div.container-messages
 </template>
 
 <script>
-import ChatListItem from "@/components/ChatComponents/ChatListItem";
+import ChatListItem from "@/components/Body/Main/MasterAccount/Content/Pages/ChatComponents/ChatListItem";
 export default {
   name: 'ChatList',
   components: {ChatListItem},
@@ -16,19 +16,19 @@ export default {
       items: [
         {
           'id': 0,
-          'userImage': require('../../assets/pics/default_user.png'),
+          'userImage': require('../../../../../../../assets/pics/default_user.png'),
           'name': 'Lucille Wilkerson',
           'message': 'Hi, do you have lessons on the weekend?',
         },
         {
           'id': 1,
-          'userImage': require('../../assets/pics/default_user.png'),
+          'userImage': require('../../../../../../../assets/pics/default_user.png'),
           'name': 'Anna White',
           'message': 'I really liked your video lessons, can we appoint a lesson?',
         },
         {
           'id': 2,
-          'userImage': require('../../assets/pics/default_user.png'),
+          'userImage': require('../../../../../../../assets/pics/default_user.png'),
           'name': 'Avani Hancock',
           'message': 'Hello, I really liked your video presentation, can we appoint a lesson?',
         },

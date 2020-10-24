@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import MasterInfo from "@/components/StartPageComponents/MasterInfo"
-import StudentInfo from "@/components/StartPageComponents/StudentInfo"
+import MasterInfo from "@/components/Body/Main/StartPage/StartPageComponents/MasterInfo"
+import StudentInfo from "@/components/Body/Main/StartPage/StartPageComponents/StudentInfo"
 
 export default {
   name: "InfoContainer",

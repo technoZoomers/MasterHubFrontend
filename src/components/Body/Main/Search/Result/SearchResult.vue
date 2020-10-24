@@ -3,7 +3,7 @@
     div.master_blocks_loop(v-for="item in items")
       div.image_rating_button
         div.img
-          img.pic__img(src = '../assets/pics/user.jpg')
+          img.pic__img(src = '../../../../../assets/pics/user.jpg')
         div.rat 5.0 ⭐
         div.choose
           input.choose_btn(type='submit' value="assign")
@@ -28,7 +28,7 @@
         div.title_video welcome video
         div.video_source
           video.video_source_video(
-            src='../assets/test.mp4'
+            src='../../../../../assets/test.mp4'
             type="video/webm"
             controls
           )
